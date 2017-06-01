@@ -1,0 +1,28 @@
+{
+    "name": "kelunik/streaming-resp",
+    "description": "A streaming RESP parser for Amp.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Niklas Keller",
+            "email": "me@kelunik.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kelunik\\StreamingResp\\": "src"
+        }
+    },
+    "require": {
+        "amphp/amp": "^2",
+        "amphp/socket": "dev-amp_v2",
+        "amphp/byte-stream": "dev-master"
+    },
+    "require-dev": {
+        "amphp/artax": "^3",
+        "amphp/phpunit-util": "dev-master",
+        "friendsofphp/php-cs-fixer": "^2.3"
+    }
+}
