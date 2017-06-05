@@ -45,12 +45,12 @@ class RecursiveRespParser extends Parser implements RespParser {
                     $length = (int) $value;
 
                     if ($length === -1) {
-                        $payload = null;
+                        ($this->onResponse)(null);
                     } else {
-                        $payload = \substr(yield ($length + 2), 0, -2);
+                        $payload = yield ($length + 2);
+                        ($this->onResponse)(\substr($payload, 0, -2));
                     }
 
-                    ($this->onResponse)($payload);
                     break;
 
                 case "-":
