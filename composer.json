@@ -1,6 +1,6 @@
 {
     "name": "kelunik/streaming-resp",
-    "description": "A streaming RESP parser for Amp.",
+    "description": "A streaming RESP parser.",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
@@ -16,13 +16,10 @@
         }
     },
     "require": {
-        "amphp/amp": "^2",
-        "amphp/socket": "dev-amp_v2",
         "amphp/byte-stream": "dev-master"
     },
     "require-dev": {
-        "amphp/artax": "^3",
-        "amphp/phpunit-util": "dev-master",
+        "phpunit/phpunit": "^6",
         "friendsofphp/php-cs-fixer": "^2.3"
     }
 }
