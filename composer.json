@@ -3,7 +3,6 @@
     "description": "A streaming RESP parser.",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Niklas Keller",
@@ -16,7 +15,7 @@
         }
     },
     "require": {
-        "amphp/byte-stream": "dev-master"
+        "amphp/parser": "^1"
     },
     "require-dev": {
         "phpunit/phpunit": "^6",

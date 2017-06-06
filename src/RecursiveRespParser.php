@@ -2,7 +2,7 @@
 
 namespace Kelunik\StreamingResp;
 
-use Amp\ByteStream\Parser;
+use Amp\Parser\Parser;
 
 class RecursiveRespParser extends Parser implements RespParser {
     private $onResponse;
