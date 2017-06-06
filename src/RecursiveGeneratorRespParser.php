@@ -4,7 +4,7 @@ namespace Kelunik\StreamingResp;
 
 use Amp\Parser\Parser;
 
-class RecursiveRespParser extends Parser implements RespParser {
+class RecursiveGeneratorRespParser extends Parser implements RespParser {
     private $onResponse;
 
     public function __construct(callable $onResponse) {
@@ -34,7 +34,7 @@ class RecursiveRespParser extends Parser implements RespParser {
                     $arraySize = (int) $value;
                     $values = [];
 
-                    while (--$arraySize > 0) {
+                    while ($arraySize-- > 0) {
                         $values[] = yield from $this->parseSingle();
                     }
 
@@ -84,8 +84,9 @@ class RecursiveRespParser extends Parser implements RespParser {
                 $arraySize = (int) $value;
                 $values = [];
 
-                while (--$arraySize > 0) {
-                    $values[] = yield from $this->parseSingle();
+                while ($arraySize-- > 0) {
+                    $value = yield from $this->parseSingle();
+                    $values[] = $value;
                 }
 
                 return $values;
@@ -96,7 +97,8 @@ class RecursiveRespParser extends Parser implements RespParser {
                 if ($length === -1) {
                     $payload = null;
                 } else {
-                    $payload = \substr(yield ($length + 2), 0, -2);
+                    $payload = yield ($length + 2);
+                    $payload = \substr($payload, 0, -2);
                 }
 
                 return $payload;

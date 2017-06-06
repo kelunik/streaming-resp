@@ -1,7 +1,7 @@
 <?php
 
 use Kelunik\StreamingResp\IterativeRespParser;
-use Kelunik\StreamingResp\RecursiveRespParser;
+use Kelunik\StreamingResp\RecursiveGeneratorRespParser;
 use Kelunik\StreamingResp\RespParser;
 
 chdir(__DIR__);
@@ -52,7 +52,7 @@ printf("%s: %f @ %s\n", IterativeRespParser::class, $test->benchSimpleString(), 
 printf("%s: %f @ %s\n", IterativeRespParser::class, $test->benchBulkString(), "bulk-string");
 printf("%s: %f @ %s\n", IterativeRespParser::class, $test->benchSimpleArray(), "simple-array");
 
-$test = new BenchCase(new RecursiveRespParser(function () {}));
-printf("%s: %f @ %s\n", RecursiveRespParser::class, $test->benchSimpleString(), "simple-string");
-printf("%s: %f @ %s\n", RecursiveRespParser::class, $test->benchBulkString(), "bulk-string");
-printf("%s: %f @ %s\n", RecursiveRespParser::class, $test->benchSimpleArray(), "simple-array");
+$test = new BenchCase(new RecursiveGeneratorRespParser(function () {}));
+printf("%s: %f @ %s\n", RecursiveGeneratorRespParser::class, $test->benchSimpleString(), "simple-string");
+printf("%s: %f @ %s\n", RecursiveGeneratorRespParser::class, $test->benchBulkString(), "bulk-string");
+printf("%s: %f @ %s\n", RecursiveGeneratorRespParser::class, $test->benchSimpleArray(), "simple-array");
